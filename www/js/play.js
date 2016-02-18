@@ -6,11 +6,11 @@ var DogeDodge = {};
 
 DogeDodge.Play = function () {};
 
-DogeDodge.play.prototype = {
+DogeDodge.Play.prototype = {
 
   init: function () {
-    console.log("%c~~~Booting the DogeDodge ~~~\n Compliments of Skilstak", )
-                "color:#FFA500;  background:#073642");
+    console.log("%c~~~Booting the DogeDodge ~~~\n Compliments of Skilstak", 
+             "color:#fdf6e3;  background:#073642");
   },
 
   preload: function () {
@@ -18,10 +18,11 @@ DogeDodge.play.prototype = {
   },
 
   create: function () {
-  this.background = this.add.titleSprite(0,0,320,568,"background");
-  this.background.autoScroll(0-50);
+  this.background = this.add.tileSprite(0,0,320,568,"background");
+  this.background.autoScroll(0,-50);
   this.background.scale.set(1);
   },
 
   update: function () {
   }
+};
