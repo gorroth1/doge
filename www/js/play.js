@@ -40,17 +40,38 @@ DogeDodge.Play.prototype = {
   this.cursors = game.input.keyboard.createCursorKeys();
   },
 
-  update: function () {
+  //update: function () {
+    //this.killer.y += 20;
+    //if (this.cursors.left.isDown) { 
+      //this.dodger.x -= 10;
+    //}
+    //if (this.cursors.right.isDown) {
+     // this.dodger.x += 10;
+   // }
+   // if (this.fallingobject.y >568) {
+    //  this.fallingobject.y = -10
+     // this.fallingobject.x = game.rnd.integerInRange(1,320);
+    // }
+ /// }
 
-    if (this.cursors.left.isDown) { 
-      this.dodger.x -= 10;
+  
+  update: function () {
+    if (this.cursors.left.isDown) {
+      this.dodger.body.velocity.x = -800;
     }
     if (this.cursors.right.isDown) {
-      this.dodger.x += 10;
+      this.dodger.body.velocity.x = 800;
     }
-    if (this.fallingobject.y >568) {
-      this.fallingobject.y = -10
-      this.fallingobject.x = game.rnd.integerInRange(1,320);
-     }
+    if (this.killer.y >= 568) {
+      this.killer.y = -32;
+      this.killer.body.velocity.y = 0;
+      this.killer.x = game.rnd.interInRange(0,320);
+      ;
+    game.physics.arcade.collide(this.killer,this.dodger,this.handleCollisions);
+    
+     handleCollision: function() {
+    console.log("OUUCHH");
+    game.state.start('Play')
+  }  
   }
 };
