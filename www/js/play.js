@@ -68,10 +68,8 @@ DogeDodge.Play.prototype = {
       this.killer.x = game.rnd.interInRange(0,320);
       ;
     game.physics.arcade.collide(this.killer,this.dodger,this.handleCollisions);
-    
+    },
      handleCollision: function() {
     console.log("OUUCHH");
     game.state.start('Play')
-  }  
-  }
 };
